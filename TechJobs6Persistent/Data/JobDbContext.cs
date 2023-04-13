@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using TechJobs6Persistent.Models;
 using TechJobs6Persistent.Controllers;
+using System.Reflection.Emit;
 
 namespace TechJobs6Persistent.Data
 {
@@ -25,6 +26,19 @@ namespace TechJobs6Persistent.Data
             .HasOne(p => p.Employer)
             .WithMany(b => b.Jobs);
             //set up your connection for many to many (skills to jobs)
+            modelBuilder.Entity<Job>()
+                .HasMany(s => s.Skills)
+                .WithMany(s =>s.Jobs)
+                .UsingEntity(x => x.ToTable("JobSkills"));
         }
     }
 }
+
+
+
+
+
+//In the OnModelCreating method, we want to create a table called “JobSkills”. 
+//    This table will use an Entity of type Job. It has many Skills with many Jobs. 
+//    It will use Entity to create a table named ”JobSkills”.
+//Run a new migration and update your database to see your new table.
