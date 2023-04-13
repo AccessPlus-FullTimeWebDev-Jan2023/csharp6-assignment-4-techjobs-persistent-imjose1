@@ -43,10 +43,11 @@ namespace TechJobs6Persistent.Controllers
             
             if (ModelState.IsValid)
             {
+                Employer neweploy = context.Employers.Find(addJobViewModel.EmployerId);
                 Job newJob = new Job
                 {
                     Name = addJobViewModel.JobName,
-                   
+                    Employer =neweploy
                     
                 };
                 context.Jobs.Add(newJob);
