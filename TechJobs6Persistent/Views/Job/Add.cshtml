@@ -14,14 +14,13 @@
     <br />
     
     <div class="form-group">
-        <label>Employer</label>
-         <input asp-for="Employers" class="form-control" />
-        <option  asp-for="@Employer">Employer</option>
+       <label>Employer</label>
+       <select asp-items="Model.Employers"  class="form-control" >
+       <option value="Name">select option</option>
+       </select>
     </div>
-   
+     
     
-
-
     <input type="submit" value="Add Job" />
      <br />
     <p><a asp-controller="Employer" asp-action="Create">Add new Employer</a></p>
