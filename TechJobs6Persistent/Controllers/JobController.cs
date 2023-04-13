@@ -52,7 +52,7 @@ namespace TechJobs6Persistent.Controllers
                 };
                 context.Jobs.Add(newJob);
                 context.SaveChanges();
-                return Redirect("/Jobs");
+                return Redirect("/Job");
             }
 
             return View("Add",addJobViewModel);
