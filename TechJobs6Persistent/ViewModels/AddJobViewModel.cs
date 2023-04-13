@@ -21,7 +21,8 @@ namespace TechJobs6Persistent.ViewModels
             {
                 Employers.Add(new SelectListItem
                 {
-                    Value = employer.Name,                  
+                    Value= employer.Name,  
+                    Text = employer.Location,
                 });
             }
 
